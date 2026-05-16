@@ -1,0 +1,35 @@
+{
+  "id": "los-abuelos-de-la-justicia",
+  "title": "Los Abuelos de la Justicia",
+  "description": "Módulo instalador de la aventura Los Abuelos de la Justicia para IMSERSO to the limit.",
+  "version": "1.0.0",
+  "url": "https://github.com/ManuRomera/los-abuelos-de-la-justicia",
+  "manifest": "https://raw.githubusercontent.com/ManuRomera/los-abuelos-de-la-justicia/main/module.json",
+  "download": "https://github.com/ManuRomera/los-abuelos-de-la-justicia/archive/refs/heads/main.zip",
+  "compatibility": {
+    "minimum": "11",
+    "verified": "13",
+    "maximum": "13"
+  },
+  "authors": [
+    {
+      "name": "Adaptación Foundry VTT"
+    }
+  ],
+  "relationships": {
+    "systems": [
+      {
+        "id": "imserso-to-the-limit",
+        "type": "system",
+        "compatibility": {}
+      }
+    ]
+  },
+  "esmodules": [
+    "scripts/assets.js",
+    "scripts/installer.js"
+  ],
+  "styles": [
+    "styles/installer.css"
+  ]
+}

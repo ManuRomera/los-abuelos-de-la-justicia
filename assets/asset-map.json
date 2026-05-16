@@ -1,0 +1,368 @@
+{
+  "scenes": {
+    "scene_01_autocar_viaje_con_jubilados": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/scenes/scene_01_autocar_viaje_con_jubilados.webp",
+      "title": "Autocar: viaje con jubilados",
+      "type": "scene"
+    },
+    "scene_02_hotel_recepcion": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/scenes/scene_02_hotel_recepcion.webp",
+      "title": "Hotel: recepción",
+      "type": "scene"
+    },
+    "scene_03_habitacion_hotel_cajas_negras": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/scenes/scene_03_habitacion_hotel_cajas_negras.webp",
+      "title": "Habitación del hotel: cajas negras",
+      "type": "scene"
+    },
+    "scene_04_teatro_sala_chirigotas": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/scenes/scene_04_teatro_sala_chirigotas.webp",
+      "title": "Teatro: sala de chirigotas",
+      "type": "scene"
+    },
+    "scene_05_teatro_tramoya_backstage": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/scenes/scene_05_teatro_tramoya_backstage.webp",
+      "title": "Teatro: tramoya / backstage",
+      "type": "scene"
+    },
+    "scene_06_banco_exterior_atraco": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/scenes/scene_06_banco_exterior_atraco.webp",
+      "title": "Banco: exterior tras el atraco",
+      "type": "scene"
+    },
+    "scene_07_callejuelas_cadiz_carnaval": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/scenes/scene_07_callejuelas_cadiz_carnaval.webp",
+      "title": "Callejuelas de Cádiz en carnaval",
+      "type": "scene"
+    },
+    "scene_08_muelle_puerto_cadiz": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/scenes/scene_08_muelle_puerto_cadiz.webp",
+      "title": "Muelle / puerto de Cádiz",
+      "type": "scene"
+    },
+    "scene_09_autocar_interior_desde_atras": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/scenes/scene_09_autocar_interior_desde_atras.webp",
+      "title": "Autocar: interior desde atrás",
+      "type": "scene"
+    },
+    "scene_10_autocar_interior_desde_delante": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/scenes/scene_10_autocar_interior_desde_delante.webp",
+      "title": "Autocar: interior desde delante",
+      "type": "scene"
+    },
+    "scene_11_hotel_buffet_desayuno": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/scenes/scene_11_hotel_buffet_desayuno.webp",
+      "title": "Hotel: buffet de desayuno",
+      "type": "scene"
+    },
+    "scene_12_hotel_salon_nocturno": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/scenes/scene_12_hotel_salon_nocturno.webp",
+      "title": "Hotel: salón nocturno",
+      "type": "scene"
+    },
+    "scene_13_azotea_teatro": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/scenes/scene_13_azotea_teatro.webp",
+      "title": "Azotea del teatro",
+      "type": "scene"
+    },
+    "scene_14_hotel_pasillo_nocturno_cajas": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/scenes/scene_14_hotel_pasillo_nocturno_cajas.webp",
+      "title": "Hotel: pasillo nocturno con cajas",
+      "type": "scene"
+    },
+    "scene_15_teatro_foyer_entrada": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/scenes/scene_15_teatro_foyer_entrada.webp",
+      "title": "Teatro: foyer / entrada",
+      "type": "scene"
+    },
+    "scene_16_teatro_pasillo_estampitas": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/scenes/scene_16_teatro_pasillo_estampitas.webp",
+      "title": "Teatro: pasillo con estampitas",
+      "type": "scene"
+    }
+  },
+  "actors": {
+    "enemy_doble_caretos": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/enemies/enemy_doble_caretos.webp",
+      "title": "2 caretos",
+      "type": "enemy"
+    },
+    "enemy_don_congelador": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/enemies/enemy_don_congelador.webp",
+      "title": "Sr. Frío",
+      "type": "enemy"
+    },
+    "enemy_el_bromas_jockey": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/enemies/enemy_el_bromas_jockey.webp",
+      "title": "El Bromas",
+      "type": "enemy"
+    },
+    "enemy_el_mantas": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/enemies/enemy_el_mantas.webp",
+      "title": "El mantas",
+      "type": "enemy"
+    },
+    "enemy_la_bane": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/enemies/enemy_la_bane.webp",
+      "title": "La Bane",
+      "type": "enemy"
+    },
+    "enemy_relampago_del_reves": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/enemies/enemy_relampago_del_reves.webp",
+      "title": "Flash del Revés",
+      "type": "enemy"
+    },
+    "enemy_la_bane_dopada": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/enemies/enemy_la_bane_dopada.webp",
+      "title": "La Bane dopada",
+      "type": "enemy"
+    },
+    "npc_alejandro_animador_friki": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/npcs/npc_alejandro_animador_friki.webp",
+      "title": "Alejandro, animador friki",
+      "type": "npc"
+    },
+    "npc_anselmo_civil": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/npcs/npc_anselmo_civil.webp",
+      "title": "Anselmo",
+      "type": "npc"
+    },
+    "npc_anselmo_revelado_botin": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/npcs/npc_anselmo_revelado_botin.webp",
+      "title": "Anselmo revelado",
+      "type": "npc"
+    },
+    "npc_dona_magdalena_binguera": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/npcs/npc_dona_magdalena_binguera.webp",
+      "title": "Doña Magdalena",
+      "type": "npc"
+    },
+    "npc_eusebio_rehen": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/npcs/npc_eusebio_rehen.webp",
+      "title": "Eusebio",
+      "type": "npc"
+    },
+    "npc_la_puri_santurrona": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/npcs/npc_la_puri_santurrona.webp",
+      "title": "La Puri",
+      "type": "npc"
+    },
+    "npc_productor_octogenario_epilogo": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/npcs/npc_productor_octogenario_epilogo.webp",
+      "title": "Productor octogenario del epílogo",
+      "type": "npc"
+    },
+    "npc_agente_de_policia": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/extras/npc_agente_de_policia.webp",
+      "title": "Agente de policía",
+      "type": "extra"
+    },
+    "npc_sanitario": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/extras/npc_sanitario.webp",
+      "title": "Sanitario",
+      "type": "extra"
+    },
+    "npc_voluntario": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/extras/npc_voluntario.webp",
+      "title": "Voluntario",
+      "type": "extra"
+    },
+    "npc_agustin_farina": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/pcs/npc_agustin_farina.webp",
+      "title": "Agustín Fariña",
+      "type": "pc"
+    },
+    "npc_felipe_el_bestia_guzman": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/pcs/npc_felipe_el_bestia_guzman.webp",
+      "title": "Felipe el Bestia Guzmán",
+      "type": "pc"
+    },
+    "npc_fernanda_gimenez": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/pcs/npc_fernanda_gimenez.webp",
+      "title": "Fernanda Giménez",
+      "type": "pc"
+    },
+    "npc_helmut_koch": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/pcs/npc_helmut_koch.webp",
+      "title": "Helmut Koch",
+      "type": "pc"
+    },
+    "npc_isabel_moyano": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/pcs/npc_isabel_moyano.webp",
+      "title": "Isabel Moyano",
+      "type": "pc"
+    },
+    "npc_loreta_blanca": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/pcs/npc_loreta_blanca.webp",
+      "title": "Loreta Blanca",
+      "type": "pc"
+    },
+    "pc_bonifacio_civil": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/pcs/pc_bonifacio_civil.webp",
+      "title": "Bonifacio, civil",
+      "type": "pc"
+    },
+    "pc_bonifacio_heroico": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/pcs/pc_bonifacio_heroico.webp",
+      "title": "Bonifacio, heroico",
+      "type": "pc"
+    },
+    "pc_eliodoro_civil_revisar_recorte": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/pcs/pc_eliodoro_civil_revisar_recorte.webp",
+      "title": "Eliodoro, civil",
+      "type": "pc"
+    },
+    "pc_eliodoro_heroico_vigilante": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/pcs/pc_eliodoro_heroico_vigilante.webp",
+      "title": "Eliodoro, heroico / vigilante",
+      "type": "pc"
+    },
+    "pc_ernestina_civil": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/pcs/pc_ernestina_civil.webp",
+      "title": "Ernestina, civil",
+      "type": "pc"
+    },
+    "pc_ernestina_heroica_bionica": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/pcs/pc_ernestina_heroica_bionica.webp",
+      "title": "Ernestina, heroica / biónica",
+      "type": "pc"
+    },
+    "pc_fortunata_civil": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/pcs/pc_fortunata_civil.webp",
+      "title": "Fortunata, civil",
+      "type": "pc"
+    },
+    "pc_fortunata_heroica_brazaletes": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/pcs/pc_fortunata_heroica_brazaletes.webp",
+      "title": "Fortunata, heroica / brazaletes",
+      "type": "pc"
+    },
+    "pc_silvestra_civil": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/pcs/pc_silvestra_civil.webp",
+      "title": "Silvestra, civil",
+      "type": "pc"
+    },
+    "pc_silvestra_heroica_velocista": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/actors/pcs/pc_silvestra_heroica_velocista.webp",
+      "title": "Silvestra, heroica / velocista",
+      "type": "pc"
+    }
+  },
+  "items": {
+    "item_abanico_floral": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/items/item_abanico_floral.webp",
+      "title": "Abanico floral",
+      "type": "item"
+    },
+    "item_bolsa_deporte_billetes": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/items/item_bolsa_deporte_billetes.webp",
+      "title": "Bolsa de deporte con billetes",
+      "type": "item"
+    },
+    "item_botin_banco_confeti": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/items/item_botin_banco_confeti.webp",
+      "title": "Botín del banco con confeti",
+      "type": "item"
+    },
+    "item_brazaletes_dorados": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/items/item_brazaletes_dorados.webp",
+      "title": "Brazaletes dorados",
+      "type": "item"
+    },
+    "item_caja_carton_normal": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/items/item_caja_carton_normal.webp",
+      "title": "Caja de cartón normal",
+      "type": "item"
+    },
+    "item_caja_disfraces_heroicos": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/items/item_caja_disfraces_heroicos.webp",
+      "title": "Caja con disfraces heroicos",
+      "type": "item"
+    },
+    "item_cajas_negras_misteriosas": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/items/item_cajas_negras_misteriosas.webp",
+      "title": "Cajas negras misteriosas",
+      "type": "item"
+    },
+    "item_carton_bingo_magdalena": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/items/item_carton_bingo_magdalena.webp",
+      "title": "Cartón de bingo de Doña Magdalena",
+      "type": "item"
+    },
+    "item_cinturon_cachivaches": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/items/item_cinturon_cachivaches.webp",
+      "title": "Cinturón de cachivaches",
+      "type": "item"
+    },
+    "item_estampitas_religiosas": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/items/item_estampitas_religiosas.webp",
+      "title": "Estampitas religiosas",
+      "type": "item"
+    },
+    "item_estampitas_religiosas_con_rosario": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/items/item_estampitas_religiosas_con_rosario.webp",
+      "title": "Estampitas religiosas con rosario",
+      "type": "item"
+    },
+    "item_folleto_imserso_cadiz": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/items/item_folleto_imserso_cadiz.webp",
+      "title": "Folleto IMSERSO Cádiz",
+      "type": "item"
+    },
+    "item_jabon_experimental": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/items/item_jabon_experimental.webp",
+      "title": "Jabón experimental",
+      "type": "item"
+    },
+    "item_latigo_luminoso": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/items/item_latigo_luminoso.webp",
+      "title": "Látigo luminoso",
+      "type": "item"
+    },
+    "item_llaves_tarjeta_hotel": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/items/item_llaves_tarjeta_hotel.webp",
+      "title": "Llaves / tarjeta del hotel",
+      "type": "item"
+    },
+    "item_maleta_jubilado_pegatinas": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/items/item_maleta_jubilado_pegatinas.webp",
+      "title": "Maleta de jubilado con pegatinas",
+      "type": "item"
+    },
+    "item_mochila_dopaje_verde": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/items/item_mochila_dopaje_verde.webp",
+      "title": "Mochila de dopaje verde",
+      "type": "item"
+    },
+    "item_pastillero_semanal": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/items/item_pastillero_semanal.webp",
+      "title": "Pastillero semanal",
+      "type": "item"
+    },
+    "item_programa_chirigotas_entrada": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/items/item_programa_chirigotas_entrada.webp",
+      "title": "Programa de chirigotas / entrada",
+      "type": "item"
+    },
+    "item_rosario": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/items/item_rosario.webp",
+      "title": "Rosario",
+      "type": "item"
+    },
+    "item_sonotone": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/items/item_sonotone.webp",
+      "title": "Sonotone",
+      "type": "item"
+    },
+    "item_tebeo_deshecho_lavadora": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/items/item_tebeo_deshecho_lavadora.webp",
+      "title": "Tebeo deshecho en lavadora",
+      "type": "item"
+    },
+    "item_visor_bionico": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/items/item_visor_bionico.webp",
+      "title": "Visor biónico",
+      "type": "item"
+    }
+  }
+}

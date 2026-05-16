@@ -1,0 +1,136 @@
+.abj-installer .dialog-content {
+  background: #f8f4e8;
+  color: #191712;
+}
+
+.abj-installer-card {
+  border: 4px solid #151515;
+  border-left: 14px solid #6b1746;
+  padding: 14px;
+  background: linear-gradient(90deg, rgba(255, 238, 174, 0.55), rgba(255, 255, 255, 0.94));
+  font-family: "Arial", sans-serif;
+}
+
+.abj-installer-card h2 {
+  margin: 0 0 8px;
+  color: #6b1746;
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.abj-installer-card p {
+  margin: 8px 0;
+  font-weight: 700;
+}
+
+.abj-installer-card small {
+  display: block;
+  margin-top: 8px;
+  color: #385a39;
+  font-weight: 800;
+}
+
+.abj-installer .dialog-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.abj-installer .dialog-button {
+  border: 2px solid #151515;
+  background: #6b1746;
+  color: white;
+  font-weight: 900;
+}
+
+.journal-entry-content .abj-journal,
+.abj-journal {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 22px;
+  border: 5px solid #151515;
+  border-left: 16px solid #6b1746;
+  background: #fffdf6;
+  color: #171512;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.abj-journal h1 {
+  margin: 0 0 16px;
+  color: #6b1746;
+  font-size: 34px;
+  font-weight: 1000;
+  line-height: 1;
+}
+
+.abj-journal h2 {
+  margin: 20px 0 8px;
+  padding-bottom: 4px;
+  border-bottom: 3px solid #6b1746;
+  color: #214a2a;
+  font-size: 22px;
+  font-weight: 1000;
+}
+
+.abj-journal h3 {
+  margin: 16px 0 6px;
+  color: #6b1746;
+  font-size: 18px;
+  font-weight: 1000;
+}
+
+.abj-journal p,
+.abj-journal li {
+  font-weight: 700;
+}
+
+.abj-journal blockquote {
+  margin: 10px 0 16px;
+  padding: 14px 16px;
+  border: 3px solid #151515;
+  border-left: 12px solid #2f9a4f;
+  background: #fff3cf;
+  color: #171512;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.abj-journal ul {
+  columns: 2 260px;
+  padding-left: 20px;
+}
+
+.abj-link-list {
+  margin: 8px 0 14px;
+  padding: 10px 12px 10px 28px;
+  border: 2px solid #151515;
+  background: #fff8df;
+}
+
+.abj-link-list li {
+  margin: 0 0 6px;
+  break-inside: avoid;
+}
+
+.abj-full-adventure h2 {
+  break-after: avoid;
+}
+
+.abj-pdf-page {
+  margin: 14px 0;
+  padding: 12px 14px;
+  border: 2px solid #151515;
+  background: #f8f4e8;
+}
+
+.abj-page-label {
+  display: inline-block;
+  margin: 0 0 8px;
+  padding: 4px 10px;
+  background: #6b1746;
+  color: #ffffff;
+  font-weight: 1000;
+  line-height: 1.1;
+}
