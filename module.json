@@ -1,8 +1,8 @@
 {
   "id": "los-abuelos-de-la-justicia",
-  "title": "Los Abuelos de la Justicia",
-  "description": "Módulo instalador de la aventura Los Abuelos de la Justicia para IMSERSO to the limit.",
-  "version": "1.0.0",
+  "title": "Los Abuelos de la Justicia - Adaptación para Foundry VTT",
+  "description": "Adaptación no oficial para uso privado en Foundry VTT de la aventura Los Abuelos de la Justicia, escrita por Arturo Urbano para IMSERSO to the limit.",
+  "version": "1.0.1",
   "url": "https://github.com/ManuRomera/los-abuelos-de-la-justicia",
   "manifest": "https://raw.githubusercontent.com/ManuRomera/los-abuelos-de-la-justicia/main/module.json",
   "download": "https://github.com/ManuRomera/los-abuelos-de-la-justicia/archive/refs/heads/main.zip",
@@ -13,7 +13,16 @@
   },
   "authors": [
     {
-      "name": "Adaptación Foundry VTT"
+      "name": "Arturo Urbano",
+      "flags": {
+        "role": "Autor de la aventura original"
+      }
+    },
+    {
+      "name": "Manu Romera",
+      "flags": {
+        "role": "Adaptación privada a Foundry VTT"
+      }
     }
   ],
   "relationships": {

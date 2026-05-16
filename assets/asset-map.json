@@ -1,5 +1,11 @@
 {
   "scenes": {
+    "scene_00_portada_los_abuelos_de_la_justicia": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/cover/Los_Abuelos_de_la_Justicia.webp",
+      "title": "Portada: Los Abuelos de la Justicia",
+      "type": "scene",
+      "audio": "theme_heroes_de_cadiz"
+    },
     "scene_01_autocar_viaje_con_jubilados": {
       "path": "modules/los-abuelos-de-la-justicia/assets/scenes/scene_01_autocar_viaje_con_jubilados.webp",
       "title": "Autocar: viaje con jubilados",
@@ -363,6 +369,13 @@
       "path": "modules/los-abuelos-de-la-justicia/assets/items/item_visor_bionico.webp",
       "title": "Visor biónico",
       "type": "item"
+    }
+  },
+  "audio": {
+    "theme_heroes_de_cadiz": {
+      "path": "modules/los-abuelos-de-la-justicia/assets/audio/heroes_de_cadiz.ogg",
+      "title": "Héroes de Cádiz",
+      "type": "audio"
     }
   }
 }

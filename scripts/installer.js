@@ -4,8 +4,10 @@ import { ADVENTURE_PDF_PAGES } from "./adventure-text.js";
 const FLAG_KEY = "abjKey";
 const INDEX_SETTING = "installIndex";
 const SHOWN_SETTING = "installerShown";
+const COVER_SCENE_KEY = "scene_00_portada_los_abuelos_de_la_justicia";
 
 const SCENE_ORDER = [
+  COVER_SCENE_KEY,
   "scene_01_autocar_viaje_con_jubilados",
   "scene_02_hotel_recepcion",
   "scene_03_habitacion_hotel_cajas_negras",
@@ -24,6 +26,8 @@ const SCENE_ORDER = [
   "scene_16_teatro_pasillo_estampitas"
 ];
 
+let coverAudio = null;
+
 const ACTOR_GROUPS = {
   pc: "Pregenerados",
   npc: "PNJ",
@@ -34,6 +38,11 @@ const ACTOR_GROUPS = {
 const ADVENTURE_PC_FOLDER = "PJ'S";
 
 const SCENE_GUIDES = {
+  scene_00_portada_los_abuelos_de_la_justicia: {
+    title: "Portada: Los Abuelos de la Justicia",
+    read: "Cádiz despierta en plena fiesta: confeti, sol, carnaval y un autocar cargado de jubilados que todavía no sabe que el viaje va a salirse por completo del programa. Frente al Gran Teatro Falla, la ciudad parece prometer una mañana de coplas, turistas y desayuno de hotel. Por supuesto, eso sería demasiado fácil.",
+    gm: "Escena de portada e introducción visual. Al activarse intenta reproducir Héroes de Cádiz en bucle para abrir la sesión."
+  },
   scene_01_autocar_viaje_con_jubilados: {
     title: "Autocar: viaje con jubilados",
     read: "El autocar avanza hacia Cádiz con ese temblor constante de aire acondicionado demasiado fuerte, bolsas de tela en los pasillos y conversaciones cruzadas que no terminan nunca. En la parte delantera, Alejandro, el animador, lleva horas hablando de superhéroes con una pasión capaz de agotar a una estatua. Todavía quedan kilómetros, paradas, bocadillos envueltos en papel de aluminio y una promesa misteriosa: mañana os espera una sorpresa.",
@@ -328,6 +337,7 @@ function itemSystemFor(key, asset) {
 }
 
 const JOURNAL_DEFS = [
+  { key: "creditos-adaptacion", title: "Créditos y adaptación" },
   { key: "aventura-completa", title: "Aventura completa" },
   { key: "inicio-viaje-cadiz", title: "Inicio y viaje a Cádiz", scenes: ["scene_01_autocar_viaje_con_jubilados", "scene_09_autocar_interior_desde_atras", "scene_10_autocar_interior_desde_delante"], actors: ["npc_alejandro_animador_friki", "pc_bonifacio_civil", "pc_eliodoro_civil_revisar_recorte", "pc_ernestina_civil", "pc_fortunata_civil", "pc_silvestra_civil"], text: SCENE_GUIDES.scene_01_autocar_viaje_con_jubilados.read, gm: "Presenta a los PJ, deja que sufran a Alejandro y anuncia la sorpresa de los disfraces al acercarse a Cádiz." },
   { key: "llegada-hotel", title: "Llegada al hotel", scenes: ["scene_02_hotel_recepcion", "scene_14_hotel_pasillo_nocturno_cajas"], actors: ["npc_alejandro_animador_friki", "npc_dona_magdalena_binguera", "npc_eusebio_rehen"], items: ["item_llaves_tarjeta_hotel", "item_cajas_negras_misteriosas", "item_caja_carton_normal"], text: SCENE_GUIDES.scene_02_hotel_recepcion.read, gm: "Reparte habitaciones, mueve a los PNJ y deja a Anselmo haciendo alguna llamada si quieres plantar sospecha." },
@@ -367,7 +377,10 @@ Hooks.on("canvasReady", () => {
   const scene = canvas?.scene;
   if (!scene?.getFlag?.(MODULE_ID, FLAG_KEY)) return;
   window.setTimeout(() => fitAdventureScene(scene), 100);
+  syncCoverAudio(scene);
 });
+
+Hooks.on("canvasTearDown", () => stopCoverAudio());
 
 class InstallerMenu extends FormApplication {
   render(force, options) {
@@ -444,7 +457,7 @@ async function installScenes(ctx) {
       gridUnits: "m",
       environment: { globalLight: { enabled: false } },
       canvas: { backgroundColor: "#000000" },
-      flags: { [MODULE_ID]: { sceneKey: key, fitOnLoad: true } }
+      flags: { [MODULE_ID]: { sceneKey: key, fitOnLoad: true, coverAudioKey: asset.audio ?? "" } }
     }, ctx, "scenes");
     const guide = SCENE_GUIDES[key] ?? { read: "Escena visual de apoyo.", gm: "" };
     const journal = await upsertDocument(game.journal, JournalEntry, `scene-note-${key}`, {
@@ -527,6 +540,8 @@ async function installJournals(ctx) {
   for (const def of JOURNAL_DEFS) {
     const pages = def.key === "aventura-completa"
       ? fullAdventurePages(ctx)
+      : def.key === "creditos-adaptacion"
+        ? [{ name: def.title, type: "text", text: { format: 1, content: creditsContent(ctx) } }]
       : [{ name: def.title, type: "text", text: { format: 1, content: journalContent(def, ctx) } }];
     await upsertDocument(game.journal, JournalEntry, def.key, {
       name: def.title,
@@ -562,6 +577,31 @@ function sceneGuideContent(title, scene, guide) {
       <blockquote>${escapeHtml(guide.read)}</blockquote>
       <h2>Notas del Sr. Ministro</h2>
       <p>${escapeHtml(guide.gm)}</p>
+    </section>`;
+}
+
+function creditsContent(ctx) {
+  const cover = ctx.assetMap.scenes?.[COVER_SCENE_KEY]?.path ?? "";
+  const image = cover ? `<img class="abj-credits-cover" src="${cover}" alt="Los Abuelos de la Justicia">` : "";
+  return `
+    <section class="abj-journal abj-credits-journal">
+      ${image}
+      <h1>Los Abuelos de la Justicia</h1>
+      <p>Aventura original para <strong>IMSERSO to the limit</strong> escrita por <strong>Arturo Urbano</strong> (“Jubilados de Arkham”).</p>
+      <p>Publicada originalmente como aventura en libre descarga para <strong>IMSERSO to the limit</strong> con motivo del <strong>Día del Rol Gratis 2021</strong>.</p>
+      <h2>Créditos del PDF original</h2>
+      <ul class="abj-credit-list">
+        <li><strong>Autor de la aventura:</strong> Arturo Urbano (“Jubilados de Arkham”)</li>
+        <li><strong>Gestión editorial:</strong> Jorge Carrero Roig</li>
+        <li><strong>Diseño del proyecto:</strong> Ignacio Sánchez Aranda</li>
+        <li><strong>Diseño de portada:</strong> Adrián Jiménez Rodríguez “Squirrel”</li>
+        <li><strong>Revisión:</strong> Antonio Lozano Lubián</li>
+        <li><strong>Maquetación:</strong> Adrián Jiménez Rodríguez “Squirrel”</li>
+        <li><strong>Arte interior:</strong> arte de repositorio libre de derechos</li>
+      </ul>
+      <h2>Adaptación Foundry VTT</h2>
+      <p>Adaptación para uso privado en Foundry VTT realizada por <strong>Manu Romera</strong>.</p>
+      <p>Imágenes generadas específicamente para esta adaptación.</p>
     </section>`;
 }
 
@@ -721,6 +761,28 @@ function fitAdventureScene(scene) {
     scale: Math.max(0.05, Math.min(scale, 3)),
     duration: 250
   });
+}
+
+async function syncCoverAudio(scene) {
+  const sceneKey = scene?.getFlag?.(MODULE_ID, "sceneKey");
+  if (sceneKey !== COVER_SCENE_KEY) return stopCoverAudio();
+  if (coverAudio) return;
+  const audioKey = scene.getFlag(MODULE_ID, "coverAudioKey");
+  if (!audioKey) return;
+  const assetMap = await loadAssetMap().catch(() => null);
+  const src = assetMap?.audio?.[audioKey]?.path;
+  const audioHelper = globalThis.foundry?.audio?.AudioHelper;
+  if (!src || !audioHelper) return;
+  coverAudio = await audioHelper.play({ src, loop: true, volume: 0.55 }, true).catch((err) => {
+    console.warn("Los Abuelos de la Justicia | No se pudo reproducir la música de portada.", err);
+    return null;
+  });
+}
+
+function stopCoverAudio() {
+  if (!coverAudio) return;
+  coverAudio.stop?.();
+  coverAudio = null;
 }
 
 function escapeHtml(value) {
