@@ -236,42 +236,42 @@ const ADDITIONAL_ACTORS = {
   jubilado_bernarda: {
     title: "Bernarda",
     type: "pc",
-    path: "icons/svg/aura.svg",
+    path: "modules/los-abuelos-de-la-justicia/assets/actors/pcs/pc_bernarda.webp",
     system: pjSystem({ cac: 4, gra: 0, pre: 6, rob: 2 }, 5, 18, 6, ["ambulatorio", "gimnasia", "sonotone", "telediarios"], ["cosasDelCampo", "ingesta", "internes", "lentesProgresivas", "mulaParda", "salero"], { arquetipo: "Anciana alternativa", arquetipoKey: "anciana-alternativa", talento: "Ooooommmmm. Una sola vez por partida puede ponerse a meditar con las piernas cruzadas y recuperar 2 puntos de Salud o ganar 1 yayopoint.", vidaMilagros: "Una señora que sabe cuidarse y ve con malos ojos los hábitos de los demás, aunque hace no mucho ella hacía lo mismo. Le gusta salir a andar, el yoga y es vegana la mayor parte del tiempo.", achaqueMayor: "Tensión por las nubes", achaqueMenor: "Migrañas" })
   },
   jubilado_clemencio: {
     title: "Clemencio",
     type: "pc",
-    path: "icons/svg/wing.svg",
+    path: "modules/los-abuelos-de-la-justicia/assets/actors/pcs/pc_clemencio.webp",
     system: pjSystem({ cac: 0, gra: 2, pre: 6, rob: 4 }, 4, 22, 6, ["gimnasia", "mulaParda", "petanca", "tollinas"], ["ambulatorio", "archiperres", "cosasDelCampo", "ingesta", "lentesProgresivas", "sonotone"], { arquetipo: "Deportista", arquetipoKey: "deportista", talento: "Hercules Farnesio. Una vez por partida puede llevar a cabo una admirable proeza física sin tirar, salvo acciones de pelea.", vidaMilagros: "Siempre ha estado en forma y ahora se dedica en exclusiva al deporte. Bicicleta, senderismo, ir a comprar el pan... siempre en chándal.", achaqueMayor: "Dentadura postiza", achaqueMenor: "Vista regulera" })
   },
   jubilado_marciala: {
     title: "Marciala",
     type: "pc",
-    path: "icons/svg/book.svg",
+    path: "modules/los-abuelos-de-la-justicia/assets/actors/pcs/pc_marciala.webp",
     system: pjSystem({ cac: 6, gra: 0, pre: 4, rob: 2 }, 6, 18, 8, ["internes", "lentesProgresivas", "memoria", "telediarios"], ["archiperres", "discusion", "gimnasia", "nietos", "sonotone", "susLabores"], { arquetipo: "Cultureta", arquetipoKey: "cultureta", talento: "Oyssss. +3 a cualquier tirada en la que pueda realizar su acción de manera pedante.", vidaMilagros: "No hay libro que no haya leído ni tema del que no tenga opinión. Dejen paso a la cabeza pensante.", achaqueMayor: "Sordera", achaqueMenor: "Rodilla hecha puré" })
   },
   jubilado_valeriano: {
     title: "Valeriano",
     type: "pc",
-    path: "icons/svg/meat.svg",
+    path: "modules/los-abuelos-de-la-justicia/assets/actors/pcs/pc_valeriano.webp",
     system: pjSystem({ cac: 2, gra: 4, pre: 0, rob: 6 }, 6, 26, 12, ["cotilleo", "ingesta", "mulaParda", "salero"], ["ambulatorio", "batallitas", "discusion", "memoria", "susLabores", "tollinas"], { arquetipo: "Buffet killer", arquetipoKey: "buffet-killer", talento: "Sugar power. Tras cada merma de Salud puede recuperar 1 punto perdido si justo después saca una chocolatina o galletita y se la come.", vidaMilagros: "Cree firmemente en la disciplina y divide su día en etapas: jamón, ensaladilla, bravas...", achaqueMayor: "Barrigón más duro que una piedra", achaqueMenor: "Dolor de espalda" })
   },
   jubilado_romualda: {
     title: "Romualda",
     type: "pc",
-    path: "icons/svg/eye.svg",
+    path: "modules/los-abuelos-de-la-justicia/assets/actors/pcs/pc_romualda.webp",
     system: pjSystem({ cac: 6, gra: 0, pre: 4, rob: 2 }, 6, 18, 8, ["discusion", "lentesProgresivas", "memoria", "telediarios"], ["batallitas", "cotilleo", "ingesta", "sonotone", "susLabores", "tollinas"], { arquetipo: "Criticona", arquetipoKey: "criticon", talento: "Calumnia que algo queda. Una vez por partida puede convencer automáticamente a un extra de que alguien o algo está rematadamente mal.", vidaMilagros: "Lo importante no es lo que haga bien una misma, sino lo que hagan mal los demás.", achaqueMayor: "Lagunas", achaqueMenor: "Ciática" })
   },
   jubilado_argimiro: {
     title: "Argimiro",
     type: "pc",
-    path: "icons/svg/anchor.svg",
+    path: "modules/los-abuelos-de-la-justicia/assets/actors/pcs/pc_argimiro.webp",
     system: pjSystem({ cac: 6, gra: 4, pre: 0, rob: 2 }, 6, 18, 10, ["archiperres", "discusion", "lentesProgresivas", "memoria"], ["batallitas", "cotilleo", "mulaParda", "silbido", "sonotone", "telediarios"], { arquetipo: "Contemplador de obra", arquetipoKey: "contemplador-de-obra", talento: "Aparejador de raza. +3 a tiradas relacionadas con obras, puentes, carreteras, depuradoras, gasolineras, estaciones, etc.", vidaMilagros: "Con la vejez llega la sabiduría: Argimiro sabe cómo se hacen las cosas, sobre todo si tienen que ver con obras.", achaqueMayor: "Flato", achaqueMenor: "Manos sudorosas" })
   },
-  extra_rodolfo_blanca: { title: "Rodolfo Blanca", type: "extra", path: "icons/svg/mystery-man.svg", system: extraSystem({ cac: 0, gra: 2, pre: 6, rob: 4 }, 7, 12, 22, ["ingesta", "sonotone"], ["gimnasia", "memoria"], { bando: "Villabajo", rol: "Presidente de Blanca" }) },
-  extra_sofia_farina: { title: "Sofia Farina", type: "extra", path: "icons/svg/mystery-man.svg", system: extraSystem({ cac: 6, gra: 8, pre: 4, rob: 2 }, 13, 10, 18, ["cotilleo", "salero"], ["discusion", "gimnasia", "tollinas"], { bando: "Villarriba", rol: "Hija del presidente" }) },
-  extra_marc_rivero: { title: "Marc Rivero", type: "extra", path: "icons/svg/mystery-man.svg", system: extraSystem({ cac: 6, gra: 4, pre: 2, rob: 0 }, 13, 5, 14, ["internes", "lentesProgresivas"], ["archiperres", "sonotone", "telediarios"], { bando: "Neutral", rol: "Jefe de equipo de TVE" }) }
+  extra_rodolfo_blanca: { title: "Rodolfo Blanca", type: "extra", path: "modules/los-abuelos-de-la-justicia/assets/actors/extras/npc_rodolfo_blanca.webp", system: extraSystem({ cac: 0, gra: 2, pre: 6, rob: 4 }, 7, 12, 22, ["ingesta", "sonotone"], ["gimnasia", "memoria"], { bando: "Villabajo", rol: "Presidente de Blanca" }) },
+  extra_sofia_farina: { title: "Sofia Farina", type: "extra", path: "modules/los-abuelos-de-la-justicia/assets/actors/extras/npc_sofia_farina.webp", system: extraSystem({ cac: 6, gra: 8, pre: 4, rob: 2 }, 13, 10, 18, ["cotilleo", "salero"], ["discusion", "gimnasia", "tollinas"], { bando: "Villarriba", rol: "Hija del presidente" }) },
+  extra_marc_rivero: { title: "Marc Rivero", type: "extra", path: "modules/los-abuelos-de-la-justicia/assets/actors/extras/npc_marc_rivero.webp", system: extraSystem({ cac: 6, gra: 4, pre: 2, rob: 0 }, 13, 5, 14, ["internes", "lentesProgresivas"], ["archiperres", "sonotone", "telediarios"], { bando: "Neutral", rol: "Jefe de equipo de TVE" }) }
 };
 
 const ITEM_SYSTEMS = {
@@ -301,11 +301,246 @@ const ITEM_SYSTEMS = {
 };
 
 const ADDITIONAL_ITEMS = {
-  equipo_botiquin: { title: "Botiquín", type: "equipo", path: "icons/svg/heal.svg", system: itemSystem("Curación", "Permite curar con Ambulatorio a dificultad 10: recupera 2 de Salud, o 4 con crítico.", { usable: true, automatismo: "botiquin", habilidadUso: "ambulatorio", dificultadUso: 10 }) },
-  equipo_lavavajillas_sospechoso: { title: "Lavavajillas sospechoso", type: "equipo", path: "icons/commodities/materials/liquid-blue.webp", system: itemSystem("Sabotaje", "Material ideal para cambiazos, sabotajes y catástrofes de paellera.", { usable: true, habilidadUso: "archiperres", dificultadUso: 8 }) },
-  arma_baston_recio: { title: "Bastón recio", type: "arma", path: "icons/weapons/staves/staff-simple-brown.webp", system: { tipo: "cuerpo", habilidad: "tollinas", danoBase: 4, atributoDano: "rob", iniciativa: 2, descripcion: "Cuenta como arma cuerpo a cuerpo.", equipable: true, equipado: false } },
-  arma_pistola_pequena: { title: "Pistola pequeña", type: "arma", path: "icons/weapons/guns/gun-pistol-flintlock.webp", system: { tipo: "fuegoPequena", habilidad: "petanca", danoBase: 7, atributoDano: "pre", iniciativa: 5, descripcion: "Arma de fuego pequeña.", equipable: true, equipado: false } },
-  talento_es_que_yo_a_tus_anos: { title: "Es que yo a tus años...", type: "talento", path: "icons/svg/daze.svg", system: { descripcion: "Una vez por sesión permite narrar un flashback y sumar +1D a una tirada de habilidad o Jamacuco.", usos: { valor: 1, max: 1 }, automatismo: "flashback" } }
+  equipo_botiquin: { title: "Botiquín", type: "equipo", path: "modules/los-abuelos-de-la-justicia/assets/items/item_botiquin.webp", system: itemSystem("Curación", "Permite curar con Ambulatorio a dificultad 10: recupera 2 de Salud, o 4 con crítico.", { usable: true, automatismo: "botiquin", habilidadUso: "ambulatorio", dificultadUso: 10 }) },
+  equipo_lavavajillas_sospechoso: { title: "Lavavajillas sospechoso", type: "equipo", path: "modules/los-abuelos-de-la-justicia/assets/items/item_lavavajillas_sospechoso.webp", system: itemSystem("Sabotaje", "Material ideal para cambiazos, sabotajes y catástrofes de paellera.", { usable: true, habilidadUso: "archiperres", dificultadUso: 8 }) },
+  arma_baston_recio: { title: "Bastón recio", type: "arma", path: "modules/los-abuelos-de-la-justicia/assets/items/item_baston_recio.webp", system: { tipo: "cuerpo", habilidad: "tollinas", danoBase: 4, atributoDano: "rob", iniciativa: 2, descripcion: "Cuenta como arma cuerpo a cuerpo.", equipable: true, equipado: false } },
+  arma_pistola_pequena: { title: "Pistola pequeña", type: "arma", path: "modules/los-abuelos-de-la-justicia/assets/items/item_pistola_pequena.webp", system: { tipo: "fuegoPequena", habilidad: "petanca", danoBase: 7, atributoDano: "pre", iniciativa: 5, descripcion: "Arma de fuego pequeña.", equipable: true, equipado: false } },
+  talento_es_que_yo_a_tus_anos: { title: "Es que yo a tus años...", type: "talento", path: "modules/los-abuelos-de-la-justicia/assets/items/item_yo_a_tus_anos.webp", system: { descripcion: "Una vez por sesión permite narrar un flashback y sumar +1D a una tirada de habilidad o Jamacuco.", usos: { valor: 1, max: 1 }, automatismo: "flashback" } }
+};
+
+const RESIZE_TOKEN_MACRO = String.raw`
+(async () => {
+  const selected = canvas.tokens.controlled;
+
+  if (!selected.length) {
+    ui.notifications.warn("Selecciona uno o varios tokens antes de ejecutar la macro.");
+    return;
+  }
+
+  const currentScale = selected[0]?.document?.texture?.scaleX ?? 1;
+
+  const scale = await Dialog.prompt({
+    title: "Escalar token",
+    content: '<form class="abj-macro-form"><div class="form-group"><label>Escala visual</label><input type="number" name="scale" value="' + currentScale + '" min="0.1" step="0.1"/></div><p style="font-size:12px; opacity:0.8;">Ejemplo: 1 = tamaño normal, 3 = triple, 5 = muy grande.</p></form>',
+    label: "Aplicar",
+    callback: (html) => {
+      const root = html instanceof HTMLElement ? html : html[0];
+      return Number(root.querySelector("[name='scale']").value);
+    }
+  });
+
+  if (!Number.isFinite(scale) || scale <= 0) {
+    ui.notifications.warn("Escala no válida.");
+    return;
+  }
+
+  for (const token of selected) {
+    await token.document.update({
+      width: 1,
+      height: 1,
+      displayName: CONST.TOKEN_DISPLAY_MODES.NONE,
+      displayBars: CONST.TOKEN_DISPLAY_MODES.NONE,
+      lockRotation: true,
+      "texture.scaleX": scale,
+      "texture.scaleY": scale
+    });
+  }
+
+  ui.notifications.info("Token ajustado a escala visual x" + scale + ".");
+})();
+`;
+
+const CLEAN_SCENE_MACRO = String.raw`
+(async () => {
+  if (!game.user.isGM) {
+    ui.notifications.warn("Ejecuta esta macro como GM.");
+    return;
+  }
+
+  const log = [];
+  const warn = [];
+
+  try {
+    if (!globalThis.manuNoTokenDragRulerPatched) {
+      const BaseRuler = CONFIG.Token.rulerClass;
+
+      class ManuHiddenTokenRuler extends BaseRuler {
+        get shouldDraw() {
+          return false;
+        }
+
+        refresh(data) {
+          try {
+            super.refresh(data);
+            this.visible = false;
+            this.clear?.();
+          } catch (err) {
+            console.warn("No se pudo ocultar el Token Drag Ruler:", err);
+          }
+        }
+
+        _getWaypointLabelContext() {
+          return undefined;
+        }
+
+        _getWaypointStyle(...args) {
+          const style = super._getWaypointStyle?.(...args) ?? {};
+          style.alpha = 0;
+          return style;
+        }
+
+        _getGridHighlightStyle(...args) {
+          const style = super._getGridHighlightStyle?.(...args) ?? {};
+          style.alpha = 0;
+          return style;
+        }
+
+        _getSegmentStyle(...args) {
+          const style = super._getSegmentStyle?.(...args) ?? {};
+          style.alpha = 0;
+          return style;
+        }
+      }
+
+      CONFIG.Token.rulerClass = ManuHiddenTokenRuler;
+      globalThis.manuNoTokenDragRulerPatched = true;
+      log.push("Regla visual al arrastrar tokens oculta durante esta sesión.");
+    } else {
+      log.push("La regla visual al arrastrar tokens ya estaba oculta.");
+    }
+  } catch (err) {
+    console.error(err);
+    warn.push("No se pudo aplicar el parche de regla visual.");
+  }
+
+  try {
+    if (game.settings.settings.has("core.cursor")) {
+      await game.settings.set("core", "cursor", false);
+      log.push("Cursores de usuarios desactivados.");
+    } else {
+      warn.push("No he encontrado la setting core.cursor en esta versión.");
+    }
+  } catch (err) {
+    console.error(err);
+    warn.push("No se pudo cambiar la setting de cursores.");
+  }
+
+  try {
+    const possibleRotationSettings = [
+      "tokenAutoRotate",
+      "automaticTokenRotation",
+      "autoRotateTokens"
+    ];
+
+    let changedRotation = false;
+
+    for (const key of possibleRotationSettings) {
+      if (game.settings.settings.has("core." + key)) {
+        await game.settings.set("core", key, false);
+        log.push("Rotación automática desactivada: core." + key + ".");
+        changedRotation = true;
+        break;
+      }
+    }
+
+    if (!changedRotation) {
+      warn.push("No he encontrado la setting global de rotación automática. Aplicaré lockRotation a los tokens de la escena.");
+    }
+  } catch (err) {
+    console.error(err);
+    warn.push("No se pudo cambiar la setting global de rotación automática.");
+  }
+
+  try {
+    if (game.settings.settings.has("core.tokenDragVision")) {
+      await game.settings.set("core", "tokenDragVision", false);
+      log.push("Token Drag Vision desactivado.");
+    }
+  } catch (err) {
+    console.error(err);
+    warn.push("No se pudo desactivar Token Drag Vision.");
+  }
+
+  try {
+    const updates = canvas.tokens.placeables.map((token) => ({
+      _id: token.id,
+      lockRotation: true,
+      displayName: CONST.TOKEN_DISPLAY_MODES.NONE,
+      displayBars: CONST.TOKEN_DISPLAY_MODES.NONE
+    }));
+
+    if (updates.length) {
+      await canvas.scene.updateEmbeddedDocuments("Token", updates);
+      log.push("Rotación, nombres y barras ocultas en " + updates.length + " tokens de la escena.");
+    }
+  } catch (err) {
+    console.error(err);
+    warn.push("No se pudo limpiar la presentación de todos los tokens de la escena.");
+  }
+
+  async function clearTokenHistory(tokenDocument) {
+    try {
+      if (tokenDocument?.clearMovementHistory) await tokenDocument.clearMovementHistory();
+    } catch (err) {
+      console.warn("No se pudo limpiar el historial de movimiento del token:", err);
+    }
+  }
+
+  try {
+    if (game.combat?.clearMovementHistories) {
+      await game.combat.clearMovementHistories();
+      log.push("Historiales de movimiento del combate limpiados.");
+    }
+
+    for (const token of canvas.tokens.placeables) {
+      await clearTokenHistory(token.document);
+    }
+
+    log.push("Historiales de movimiento de la escena limpiados.");
+  } catch (err) {
+    console.error(err);
+    warn.push("No se pudieron limpiar todos los historiales de movimiento.");
+  }
+
+  if (!globalThis.manuNoMovementHistoryHook) {
+    globalThis.manuNoMovementHistoryHook = Hooks.on("updateToken", async (tokenDocument, changes) => {
+      if (!("x" in changes) && !("y" in changes)) return;
+      await clearTokenHistory(tokenDocument);
+    });
+
+    log.push("Hook activado: se intentará limpiar el historial tras cada movimiento.");
+  } else {
+    log.push("El hook de limpieza de movimiento ya estaba activo.");
+  }
+
+  const message = [
+    "<b>Macro aplicada.</b>",
+    log.length ? "<br><br><b>Hecho:</b><br>" + log.map((x) => "• " + x).join("<br>") : "",
+    warn.length ? "<br><br><b>Avisos:</b><br>" + warn.map((x) => "• " + x).join("<br>") : ""
+  ].join("");
+
+  ChatMessage.create({
+    content: message,
+    whisper: [game.user.id]
+  });
+
+  ui.notifications.info("Limpieza de movimiento/token aplicada.");
+})();
+`;
+
+const MACRO_DEFS = {
+  macro_escalar_tokens: {
+    name: "ABJ · Escalar tokens",
+    img: "modules/los-abuelos-de-la-justicia/assets/items/item_cinturon_cachivaches.webp",
+    command: RESIZE_TOKEN_MACRO,
+    slot: 1
+  },
+  macro_escena_limpia: {
+    name: "ABJ · Escena limpia",
+    img: "modules/los-abuelos-de-la-justicia/assets/items/item_lavavajillas_sospechoso.webp",
+    command: CLEAN_SCENE_MACRO,
+    slot: 2
+  }
 };
 
 function itemSystem(categoria, descripcion, data = {}) {
@@ -407,6 +642,7 @@ export function showInstaller() {
       actors: { label: "Solo actores", callback: () => installAdventure("actors") },
       items: { label: "Solo objetos", callback: () => installAdventure("items") },
       journals: { label: "Solo diarios", callback: () => installAdventure("journals") },
+      macros: { label: "Solo macros", callback: () => installAdventure("macros") },
       repair: { label: "Reinstalar / reparar enlaces", callback: () => installAdventure("repair") }
     },
     default: "all"
@@ -416,15 +652,16 @@ export function showInstaller() {
 export async function installAdventure(mode = "all") {
   const assetMap = await loadAssetMap();
   const index = foundry.utils.deepClone(game.settings.get(MODULE_ID, INDEX_SETTING) ?? {});
-  const ctx = { assetMap, index, report: { scenes: 0, actors: 0, items: 0, journals: 0, assets: countAssets(assetMap), warnings: [] } };
+  const ctx = { assetMap, index, report: { scenes: 0, actors: 0, items: 0, journals: 0, macros: 0, assets: countAssets(assetMap), warnings: [] } };
   const all = mode === "all" || mode === "repair";
   if (all || mode === "scenes") await installScenes(ctx);
   if (all || mode === "actors") await installActors(ctx);
   if (all || mode === "items") await installItems(ctx);
   if (all || mode === "journals") await installJournals(ctx);
+  if (all || mode === "macros") await installMacros(ctx);
   await game.settings.set(MODULE_ID, INDEX_SETTING, ctx.index);
   console.info("Los Abuelos de la Justicia | Informe de instalación", ctx.report);
-  ui.notifications.info(`Los Abuelos de la Justicia: ${ctx.report.scenes} escenas, ${ctx.report.actors} actores, ${ctx.report.items} objetos, ${ctx.report.journals} diarios. Assets: ${ctx.report.assets}.`);
+  ui.notifications.info(`Los Abuelos de la Justicia: ${ctx.report.scenes} escenas, ${ctx.report.actors} actores, ${ctx.report.items} objetos, ${ctx.report.journals} diarios, ${ctx.report.macros} macros. Assets: ${ctx.report.assets}.`);
   if (ctx.report.warnings.length) console.warn("Los Abuelos de la Justicia | Advertencias", ctx.report.warnings);
   return ctx.report;
 }
@@ -532,6 +769,23 @@ async function installItems(ctx) {
       folder: folder.id,
       system: foundry.utils.deepClone(asset.system)
     }, ctx, "items");
+  }
+}
+
+async function installMacros(ctx) {
+  const folder = await ensureFolder("Macro", "Los Abuelos de la Justicia", "Macros");
+  for (const [key, def] of Object.entries(MACRO_DEFS)) {
+    const macro = await upsertDocument(game.macros, Macro, key, {
+      name: def.name,
+      type: "script",
+      img: def.img,
+      command: def.command,
+      folder: folder.id
+    }, ctx, "macros");
+
+    if (game.user?.isGM && def.slot && game.user.assignHotbarMacro) {
+      await game.user.assignHotbarMacro(macro, def.slot);
+    }
   }
 }
 
@@ -737,7 +991,9 @@ async function imageDimensions(src, ctx) {
 }
 
 function countAssets(assetMap) {
-  return Object.values(assetMap).reduce((total, group) => total + Object.keys(group).length, 0);
+  return Object.values(assetMap).reduce((total, group) => total + Object.keys(group).length, 0)
+    + Object.keys(ADDITIONAL_ACTORS).length
+    + Object.keys(ADDITIONAL_ITEMS).length;
 }
 
 function link(doc) {
