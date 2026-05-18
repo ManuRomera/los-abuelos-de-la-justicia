@@ -151,3 +151,29 @@
   border: 3px solid #151515;
   background: #fff8df;
 }
+
+
+.abj-scene-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0 14px;
+}
+
+.abj-open-scene {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 28px;
+  padding: 3px 10px;
+  border: 2px solid #151515;
+  background: #6b1746;
+  color: #ffffff;
+  font: 900 14px/1 "Arial", sans-serif;
+  cursor: pointer;
+}
+
+.abj-open-scene:hover {
+  filter: brightness(1.12);
+}

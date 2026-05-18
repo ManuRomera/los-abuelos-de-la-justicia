@@ -592,6 +592,7 @@ Hooks.once("init", () => {
 });
 
 Hooks.once("ready", async () => {
+  registerSceneOpenHandler();
   if (!game.user.isGM) return;
   game.modules.get(MODULE_ID).api = { showInstaller, installAdventure };
   game.settings.registerMenu(MODULE_ID, "installer", {
@@ -700,9 +701,12 @@ async function installScenes(ctx) {
     const journal = await upsertDocument(game.journal, JournalEntry, `scene-note-${key}`, {
       name: `Escena · ${asset.title}`,
       folder: journalFolder.id,
-      pages: [{ name: "Uso en mesa", type: "text", text: { format: 1, content: sceneGuideContent(asset.title, scene, guide) } }]
+      pages: [{ name: "Uso en mesa", type: "text", text: { format: 1, content: sceneGuideContent(key, asset.title, scene, guide) } }]
     }, ctx, "journals", { count: false });
+    ctx.index.journals ??= {};
+    ctx.index.journals[`scene-note-${key}`] = { id: journal.id, uuid: journal.uuid, name: journal.name };
     await scene.update({ journal: journal.id }).catch(() => {});
+    await ensureSceneJournalNote(scene, journal, key);
   }
 }
 
@@ -822,11 +826,14 @@ function journalContent(def, ctx) {
     </section>`;
 }
 
-function sceneGuideContent(title, scene, guide) {
+function sceneGuideContent(key, title, scene, guide) {
   return `
     <section class="abj-journal abj-scene-guide">
       <h1>${escapeHtml(title)}</h1>
-      <p>${link(scene)}</p>
+      <div class="abj-scene-actions">
+        <span>${link(scene)}</span>
+        ${sceneOpenButton(key, "Abrir escena")}
+      </div>
       <h2>Lectura para jugadores</h2>
       <blockquote>${escapeHtml(guide.read)}</blockquote>
       <h2>Notas del Sr. Ministro</h2>
@@ -935,13 +942,70 @@ function resolveRefs(keys, source, indexPart = {}) {
   return list.map((key) => {
     const asset = source[key];
     const uuid = indexPart?.[key]?.uuid;
-    return { title: asset?.title ?? key, uuid };
+    return { key, title: asset?.title ?? key, uuid, type: asset?.type };
   });
 }
 
 function listBlock(title, rows) {
   if (!rows.length) return "";
-  return `<h2>${title}</h2><ul>${rows.map((row) => `<li>${row.uuid ? `@UUID[${row.uuid}]{${escapeHtml(row.title)}}` : escapeHtml(row.title)}</li>`).join("")}</ul>`;
+  return `<h2>${title}</h2><ul>${rows.map((row) => `<li>${rowLine(row)}</li>`).join("")}</ul>`;
+}
+
+function rowLine(row) {
+  const link = row.uuid ? `@UUID[${row.uuid}]{${escapeHtml(row.title)}}` : escapeHtml(row.title);
+  if (row.type === "scene") return `${link} ${sceneOpenButton(row.key, "Abrir")}`;
+  return link;
+}
+
+
+function sceneOpenButton(sceneKey, label = "Abrir escena") {
+  if (!sceneKey) return "";
+  return `<button type="button" class="abj-open-scene" data-abj-open-scene="${escapeHtml(sceneKey)}"><i class="fas fa-map"></i> ${escapeHtml(label)}</button>`;
+}
+
+function registerSceneOpenHandler() {
+  if (globalThis.abjSceneOpenHandler) return;
+  globalThis.abjSceneOpenHandler = true;
+  document.body.addEventListener("click", async (event) => {
+    const button = event.target?.closest?.("[data-abj-open-scene]");
+    if (!button) return;
+    event.preventDefault();
+    const sceneKey = button.dataset.abjOpenScene;
+    const scene = findInstalledScene(sceneKey);
+    if (!scene) {
+      ui.notifications.warn("No se ha encontrado esa escena. Ejecuta Reinstalar / reparar enlaces desde el instalador.");
+      return;
+    }
+    await scene.activate();
+  });
+}
+
+function findInstalledScene(sceneKey) {
+  if (!sceneKey) return null;
+  const index = game.settings.get(MODULE_ID, INDEX_SETTING) ?? {};
+  const sceneId = index.scenes?.[sceneKey]?.id;
+  return game.scenes.get(sceneId) ?? game.scenes.find((scene) => scene.getFlag?.(MODULE_ID, FLAG_KEY) === sceneKey);
+}
+
+async function ensureSceneJournalNote(scene, journal, sceneKey) {
+  if (!scene || !journal) return;
+  const page = journal.pages?.contents?.[0];
+  const existing = scene.notes?.find?.((note) => note.getFlag?.(MODULE_ID, FLAG_KEY) === `scene-note-link-${sceneKey}`);
+  const data = {
+    entryId: journal.id,
+    pageId: page?.id,
+    x: Math.round(scene.width * 0.055),
+    y: Math.round(scene.height * 0.075),
+    icon: "icons/svg/book.svg",
+    iconSize: 48,
+    iconTint: "#6b1746",
+    text: journal.name,
+    fontSize: 28,
+    textAnchor: CONST.TEXT_ANCHOR_POINTS?.BOTTOM ?? 1,
+    flags: { [MODULE_ID]: { [FLAG_KEY]: `scene-note-link-${sceneKey}` } }
+  };
+  if (existing) await existing.update(data);
+  else await scene.createEmbeddedDocuments("Note", [data]);
 }
 
 async function ensureFolder(type, name, childName = null, parent = null) {
