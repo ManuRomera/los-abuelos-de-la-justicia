@@ -31,6 +31,11 @@
         "id": "imserso-to-the-limit",
         "type": "system",
         "compatibility": {}
+      },
+      {
+        "id": "ysystem3-srd",
+        "type": "system",
+        "compatibility": {}
       }
     ]
   },

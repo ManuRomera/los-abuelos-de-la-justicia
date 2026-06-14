@@ -559,6 +559,251 @@ function itemSystem(categoria, descripcion, data = {}) {
   };
 }
 
+function mapActorSystem(system, isPC) {
+  const isYSystem3 = game.system.id === "ysystem3-srd";
+  if (!isYSystem3) return system;
+
+  const mapped = { ...system };
+
+  // Map attributes
+  if (system.atributos) {
+    mapped.atributos = {
+      car: system.atributos.gra ?? 0,
+      des: system.atributos.pre ?? 0,
+      fue: system.atributos.rob ?? 0,
+      int: system.atributos.cac ?? 0,
+      per: 0
+    };
+  }
+
+  // Map skills
+  if (system.habilidades) {
+    mapped.habilidades = {};
+    const SKILL_MAP = {
+      ambulatorio: "auxilio",
+      archiperres: "mecanica",
+      batallitas: "conversacion",
+      cosasDelCampo: "supervivencia",
+      cotilleo: "simulacion",
+      discusion: "intimidacion",
+      gimnasia: "atletismo",
+      ingesta: "conducir",
+      internes: "informacion",
+      lentesProgresivas: "observacion",
+      memoria: "memoria",
+      mulaParda: "fuerzaBruta",
+      nietos: "entorno",
+      petanca: "punteria",
+      salero: "seduccion",
+      silbido: "idiomaExtranjero1",
+      sonotone: "oido",
+      susLabores: "ocultacion",
+      telediarios: "cultura",
+      tollinas: "lucha"
+    };
+    for (const [key, value] of Object.entries(system.habilidades)) {
+      const targetKey = SKILL_MAP[key] ?? key;
+      mapped.habilidades[targetKey] = value;
+    }
+  }
+
+  if (isPC) {
+    // Map PC fields
+    if (system.yayopoints) {
+      mapped.proezas = {
+        valor: system.yayopoints.valor ?? 4,
+        inicial: system.yayopoints.inicial ?? 4
+      };
+      delete mapped.yayopoints;
+    }
+    if (system.jamacuco) {
+      const oldUmbrales = system.jamacuco.umbrales ?? {};
+      mapped.resistenciaFisica = {
+        valor: system.jamacuco.valor ?? 10,
+        primeraTirada: system.jamacuco.primeraTirada ?? false,
+        umbrales: {
+          "1": oldUmbrales["1"] ?? oldUmbrales[1] ?? false,
+          "2": oldUmbrales["2"] ?? oldUmbrales[2] ?? false,
+          "3": oldUmbrales["3"] ?? oldUmbrales[3] ?? false,
+          "4": oldUmbrales["4"] ?? oldUmbrales[4] ?? false,
+          "6": oldUmbrales["6"] ?? oldUmbrales[6] ?? false,
+          "7": oldUmbrales["7"] ?? oldUmbrales[7] ?? false,
+          "10": oldUmbrales["10"] ?? oldUmbrales[10] ?? false,
+          "11": oldUmbrales["11"] ?? oldUmbrales[11] ?? false,
+          "15": oldUmbrales["15"] ?? oldUmbrales[15] ?? false,
+          "16": oldUmbrales["16"] ?? oldUmbrales[16] ?? false
+        }
+      };
+      delete mapped.jamacuco;
+    }
+    if (system.achaques) {
+      mapped.defectos = {
+        grave: system.achaques.grave ?? system.achaques.mayor ?? "",
+        leve: system.achaques.leve ?? system.achaques.menor ?? "",
+        leveUsado: system.achaques.leveUsado ?? system.achaques.menorUsado ?? false
+      };
+      delete mapped.achaques;
+    }
+    if (system.flashback) {
+      mapped.recuerdo = {
+        usado: system.flashback.usado ?? false,
+        nota: system.flashback.nota ?? ""
+      };
+      delete mapped.flashback;
+    }
+    if (system.datos) {
+      mapped.datos = {
+        ...system.datos,
+        profesion: system.datos.antiguaProfesion ?? system.datos.profesion ?? "",
+        perfil: system.datos.arquetipo ?? system.datos.perfil ?? "",
+        historia: system.datos.vidaMilagros ?? system.datos.historia ?? "",
+        edad: system.datos.edad ?? "72",
+        lugarNacimiento: system.datos.lugarNacimiento ?? "Cádiz"
+      };
+      delete mapped.datos.antiguaProfesion;
+      delete mapped.datos.arquetipo;
+      delete mapped.datos.vidaMilagros;
+    }
+  } else {
+    // Map PNJ fields
+    if (system.bemoles) {
+      mapped.aplomo = {
+        valor: system.bemoles.valor ?? 7,
+        manual: system.bemoles.manual ?? true
+      };
+      delete mapped.bemoles;
+    }
+    if (system.nervio) {
+      mapped.agilidad = {
+        valor: system.nervio.valor ?? 3,
+        manual: system.nervio.manual ?? true
+      };
+      delete mapped.nervio;
+    }
+
+    // Initialize PNJ derived stats defaults
+    const rob = system.atributos?.rob ?? mapped.atributos?.fue ?? 0;
+    mapped.resistenciaFisica = {
+      valor: 12 - rob,
+      manual: false
+    };
+    mapped.perspicacia = {
+      valor: "",
+      manual: false
+    };
+
+    if (system.ataque) {
+      const mapAttackType = (t) => {
+        if (t === "sinArmas") return "desarmado";
+        if (t === "cuerpo") return "cuerpoUnaMano";
+        if (t === "fuegoPequena") return "fuegoCorto";
+        return t;
+      };
+      const SKILL_MAP = {
+        ambulatorio: "auxilio",
+        archiperres: "mecanica",
+        batallitas: "conversacion",
+        cosasDelCampo: "supervivencia",
+        cotilleo: "simulacion",
+        discusion: "intimidacion",
+        gimnasia: "atletismo",
+        ingesta: "conducir",
+        internes: "informacion",
+        lentesProgresivas: "observacion",
+        memoria: "memoria",
+        mulaParda: "fuerzaBruta",
+        nietos: "entorno",
+        petanca: "punteria",
+        salero: "seduccion",
+        silbido: "idiomaExtranjero1",
+        sonotone: "oido",
+        susLabores: "ocultacion",
+        telediarios: "cultura",
+        tollinas: "lucha"
+      };
+      mapped.ataque = {
+        nombre: system.ataque.nombre ?? "Tollina",
+        habilidad: SKILL_MAP[system.ataque.habilidad] ?? system.ataque.habilidad ?? "lucha",
+        tipo: mapAttackType(system.ataque.tipo ?? "sinArmas"),
+        dano: system.ataque.dano ?? 2
+      };
+    }
+  }
+
+  // Map combate.ataque & combate.armaIniciativa for PC & PNJ
+  if (system.combate) {
+    const mapAttackType = (t) => {
+      if (t === "sinArmas") return "desarmado";
+      if (t === "cuerpo") return "cuerpoUnaMano";
+      if (t === "fuegoPequena") return "fuegoCorto";
+      return t;
+    };
+    mapped.combate = {
+      ...system.combate,
+      armaIniciativa: mapAttackType(system.combate.armaIniciativa ?? "sinArmas"),
+      ataque: mapAttackType(system.combate.ataque ?? "sinArmas")
+    };
+  }
+
+  return mapped;
+}
+
+function mapItemSystem(type, system) {
+  const isYSystem3 = game.system.id === "ysystem3-srd";
+  if (!isYSystem3) return system;
+
+  const mapped = { ...system };
+
+  const SKILL_MAP = {
+    ambulatorio: "auxilio",
+    archiperres: "mecanica",
+    batallitas: "conversacion",
+    cosasDelCampo: "supervivencia",
+    cotilleo: "simulacion",
+    discusion: "intimidacion",
+    gimnasia: "atletismo",
+    ingesta: "conducir",
+    internes: "informacion",
+    lentesProgresivas: "observacion",
+    memoria: "memoria",
+    mulaParda: "fuerzaBruta",
+    nietos: "entorno",
+    petanca: "punteria",
+    salero: "seduccion",
+    silbido: "idiomaExtranjero1",
+    sonotone: "oido",
+    susLabores: "ocultacion",
+    telediarios: "cultura",
+    tollinas: "lucha"
+  };
+
+  const ATTR_MAP = {
+    cac: "int",
+    gra: "car",
+    pre: "des",
+    rob: "fue"
+  };
+
+  const mapAttackType = (t) => {
+    if (t === "sinArmas") return "desarmado";
+    if (t === "cuerpo") return "cuerpoUnaMano";
+    if (t === "fuegoPequena") return "fuegoCorto";
+    return t;
+  };
+
+  if (type === "arma") {
+    if (system.tipo) mapped.tipo = mapAttackType(system.tipo);
+    if (system.habilidad) mapped.habilidad = SKILL_MAP[system.habilidad] ?? system.habilidad;
+    if (system.atributoDano) mapped.atributoDano = ATTR_MAP[system.atributoDano] ?? system.atributoDano;
+  }
+
+  if (system.habilidadUso) {
+    mapped.habilidadUso = SKILL_MAP[system.habilidadUso] ?? system.habilidadUso;
+  }
+
+  return mapped;
+}
+
 function actorSystemFor(key, asset) {
   if (ADDITIONAL_ACTORS[key]) return foundry.utils.deepClone(ADDITIONAL_ACTORS[key].system);
   if (ACTOR_SYSTEMS[key]) return foundry.utils.deepClone(ACTOR_SYSTEMS[key]);
@@ -651,6 +896,13 @@ export function showInstaller() {
 }
 
 export async function installAdventure(mode = "all") {
+  if (game.system.id === "ysystem3-srd") {
+    try {
+      await game.settings.set("ysystem3-srd", "variant", "imserso");
+    } catch (err) {
+      console.warn("Los Abuelos de la Justicia | No se pudo cambiar de forma automática el ajuste de variante a imserso.", err);
+    }
+  }
   const assetMap = await loadAssetMap();
   const index = foundry.utils.deepClone(game.settings.get(MODULE_ID, INDEX_SETTING) ?? {});
   const ctx = { assetMap, index, report: { scenes: 0, actors: 0, items: 0, journals: 0, macros: 0, assets: countAssets(assetMap), warnings: [] } };
@@ -715,8 +967,11 @@ async function installActors(ctx) {
   await renameActorFolder(root.id, "PJ / Pregenerados", "Pregenerados");
   const folders = {};
   for (const name of new Set([...Object.values(ACTOR_GROUPS), ADVENTURE_PC_FOLDER])) folders[name] = await ensureFolder("Actor", name, null, root.id);
+  const isYSystem3 = game.system.id === "ysystem3-srd";
   for (const [key, asset] of Object.entries({ ...ctx.assetMap.actors, ...ADDITIONAL_ACTORS })) {
-    const actorType = asset.type === "pc" ? "jubilado" : "extra";
+    const actorType = isYSystem3
+      ? (asset.type === "pc" ? "personaje" : "pnj")
+      : (asset.type === "pc" ? "jubilado" : "extra");
     const disposition = asset.type === "enemy" ? -1 : asset.type === "npc" || asset.type === "extra" ? 0 : 1;
     const size = key.includes("la_bane") ? 1 : 1;
     const folderName = actorFolderName(key, asset);
@@ -725,10 +980,10 @@ async function installActors(ctx) {
       type: actorType,
       img: asset.path,
       folder: folders[folderName]?.id ?? root.id,
-      system: actorSystemFor(key, asset),
+      system: mapActorSystem(actorSystemFor(key, asset), asset.type === "pc"),
       prototypeToken: {
         name: asset.title,
-        actorLink: actorType === "jubilado",
+        actorLink: asset.type === "pc",
         disposition,
         displayName: CONST.TOKEN_DISPLAY_MODES?.OWNER ?? 30,
         displayBars: CONST.TOKEN_DISPLAY_MODES?.NONE ?? 0,
@@ -762,7 +1017,7 @@ async function installItems(ctx) {
       type: "equipo",
       img: asset.path,
       folder: folder.id,
-      system: itemSystemFor(key, asset)
+      system: mapItemSystem("equipo", itemSystemFor(key, asset))
     }, ctx, "items");
   }
   for (const [key, asset] of Object.entries(ADDITIONAL_ITEMS)) {
@@ -771,7 +1026,7 @@ async function installItems(ctx) {
       type: asset.type,
       img: asset.path,
       folder: folder.id,
-      system: foundry.utils.deepClone(asset.system)
+      system: mapItemSystem(asset.type, foundry.utils.deepClone(asset.system))
     }, ctx, "items");
   }
 }
